@@ -2,6 +2,11 @@
 
 FIXME: description
 
+## TODO
+- use DB - connect, query, insert, delete, ...
+- use good clojure testing practices
+- use some clojure concurrency (eg. for locking files while they're updated?)
+
 ## Installation
 
 Download from http://example.com/FIXME.
