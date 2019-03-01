@@ -1,10 +1,12 @@
 (ns project.core
   (:gen-class)
+  (:require [clojure.java.jdbc :as jdbc])
   )
 
 (defn path-from-pid
-  [pid]
-  (apply str ["/tmp/" (clojure.string/replace pid ":" "_")]))
+  [pid, db-spec]
+  (first
+    (jdbc/query db-spec ["SELECT path FROM objects WHERE pid = ?" pid]{:row-fn :path})))
 
 (defn -main
   "Hello World"
