@@ -27,8 +27,14 @@
     (catch java.lang.Exception ex))
   )
 
+(defn cleanup-db
+  [db-name]
+  (clojure.java.io/delete-file db-name)
+  )
+
 (defn db-test-fixture [f]
   (init-test-db "test.db")
-  (f))
+  (f)
+  (cleanup-db "test.db"))
 
 (use-fixtures :each db-test-fixture)
